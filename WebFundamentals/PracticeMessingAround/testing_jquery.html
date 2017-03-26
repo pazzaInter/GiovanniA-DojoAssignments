@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Random Shenanigans</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('button').click(function(){
+                    $('h1,h2').css("color", "purple");
+                })
+                $('h1').hover(function(){
+                    $("body").css("background-color", "yellow");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h1>This is a heading</h1>
+        <p>random stuff can go in here to mess around with jquery</p>
+        <ul>
+            <h4>Thoughts at the moment</h4>
+            <li>I hope Inter wins after the FIFA break</li>
+            <li>What do I want to eat for dinner?</li>
+            <li>How will I change this list?</li>
+        </ul>
+        <button type="button" name="button">Don't push me</button>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My jQuery basic assignment!</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#top div").click (function() {
+                    $("#top div p").addClass("red");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <section id="top">
+            <h1>AddClass</h1>
+            <div>
+                <button type="button" name="addclass">AddClass</button>
+                <p>Click the button to add class 'red' to this paragraph</p>
+            </div>
+        </section>
+        <hr>
+        <section id="middle">
+            <h1>Slidetoggle</h1>
+            <div>
+                <button type="button" name="Slidetoggle">Slidetoggle</button>
+                <p>Click the button to slidetoggle a hidden image</p>
+            </div>
+        </section>
+        <hr>
+        <section id="bottom">
+            <h1>Append</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+        </section>
+    </body>
+</html>
