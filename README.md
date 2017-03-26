@@ -1,1 +1,2 @@
-This will be a repository to upload all my Coding Dojo assignments.
+This respositoy will host all my Coding Dojo assignment.
+Each folder here is for the specific track taken. Each folder within those are for the modules within each track.
