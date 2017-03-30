@@ -1,0 +1,11 @@
+cd GiovanniA-DojoAssignments
+git init
+git add .
+git commit -m "Creating a Dojo assignments repository on personal github account"
+mkdir nul README.md
+atom README.md
+git status
+git add README.md
+git commit -m "added new README.md to explain repository"
+git remote add origin https://github.com/pazzaInter/GiovanniA-DojoAssignments.git
+git push -u origin master

@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+div {
+    margin: 10%;
+    text-align: center;
+}
+h3 {
+    text-align: left;
+    margin-left: 9%;
+    margin-bottom: 20px;
+}
+img {
+    width: 20%;
+}
+#top, #bottom {
+    margin: 0px;
+}
+#container button {
+    background-color: green;
+    color: white;
+    display: block;
+    text-align: left;
+    margin-left: 9%;
+    margin-bottom: 20px;
+}

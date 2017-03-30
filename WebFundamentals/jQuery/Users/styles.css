@@ -1,0 +1,25 @@
+table th:not(:first-child), td:not(:first-child){
+    padding: 0px 10px;
+}
+
+thead {
+    margin: 10px 0px;
+}
+
+h2 {
+    margin: 25px 0px 0px 0px;
+}
+
+#entry_form {
+    width: 300px;
+    border-top: 2px solid grey;
+}
+
+form {
+    width: 300px;
+    margin: 0px;
+}
+
+input {
+    margin: 5px;
+}

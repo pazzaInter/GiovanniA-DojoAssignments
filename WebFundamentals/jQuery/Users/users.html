@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Users Assignment</title>
+        <meta name="description" content="This will display of table of users entered through the form.">
+        <link rel="stylesheet" href="styles.css">
+        <script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+        <script type="text/javascript">
+            $(document).ready( function () {
+                $("form").submit( function (e) {
+                    e.preventDefault();
+                    var first = $("#f_name").val();
+                    var last = $("#l_name").val();
+                    var email = $("#email").val();
+                    var phone = $("#phone").val();
+                    var newRow = [first, last, email, phone];
+                    $("tbody").append("<tr>");
+                    for (var i = 0; i < newRow.length; i++) {
+                        $("tbody tr:last-child").append("<td>" + newRow[i] + "</td>");
+                    }
+                    $("tbody").append("</tr>");
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email Address</th>
+                            <th>Contact #</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div>
+                <h2>Add User</h2>
+                <div id="entry_form">
+                    <form>
+                        <label for="f_name">First Name:</label>
+                        <input type="text" id="f_name" name="f_name" placeholder="First Name" value="">
+                        <br>
+                        <label for="l_name">Last Name:</label>
+                        <input type="text" id="l_name" name="l_name" placeholder="Last Name" value="">
+                        <br>
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Email Address" value="">
+                        <br>
+                        <label for="phone#">Contact No.:</label>
+                        <input type="text" id="phone" name="phone" placeholder="Phone #" value="">
+                        <br>
+                        <input type="submit" name="add_user" value="Add User">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

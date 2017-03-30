@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Disappearing Ninja</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("img").click(function(){
+                    $(this).hide();
+                })
+                $("button").click(function(){
+                    $("img").show();
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <h3>Hide the Ninja</h3>
+            <!--credit to the image goes to http://sachmoe64.deviantart.com/art/5th-Teeny-Turtle-Mc-D-15259623-->
+            <div id="top">
+                <img src="turtle.jpg" alt="Ninja turtle eating pizza">
+                <img src="turtle.jpg" alt="Ninja turtle eating pizza">
+                <img src="turtle.jpg" alt="Ninja turtle eating pizza">
+                <img src="turtle.jpg" alt="Ninja turtle eating pizza">
+            </div>
+            <div id="bottom">
+                <img src="turtle.jpg" alt="Ninja turtle eating pizza">
+                <img src="turtle.jpg" alt="Ninja turtle eating pizza">
+                <img src="turtle.jpg" alt="Ninja turtle eating pizza">
+                <img src="turtle.jpg" alt="Ninja turtle eating pizza">
+            </div>
+            <button type="button" name="Restore">Restore</button>
+            <footer>Image: <a href="http://sachmoe64.deviantart.com/art/5th-Teeny-Turtle-Mc-D-15259623">©2005-2017 Sachmoe64</a></footer>
+        </div>
+    </body>
+</html>
