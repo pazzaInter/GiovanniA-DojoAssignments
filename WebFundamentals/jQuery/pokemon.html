@@ -4,16 +4,46 @@
         <meta charset="utf-8">
         <meta name="description" content="An image of each pokemon from the original 151.">
         <title>All 151 Original Pokemon</title>
+        <link rel="stylesheet" href="styles.css">
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 for (var i = 1; i < 151; i++) {
-                    $('#container').append('<img src="http://pokeapi.co/media/img/' + i + '.png">');
-                }
-            })
+                    $('#container').append('<img id="'+ i +  '" src="http://pokeapi.co/media/img/' + i + '.png">');
+                };
+                $("img").click(function () {
+                    var pokenumber = $(this).attr('id');
+                    console.log("http://pokeapi.co/api/v1/pokemon/"+ pokenumber);
+                    $.get("http://www.pokeapi.co/api/v1/pokemon/"+ pokenumber,
+                    function (res) {
+                        console.log(res.name);
+                        $('#name').html(res.name);
+                        // console.log(res.types[0].name);
+                        $('#picture').attr('src', 'http://pokeapi.co/media/img/' + pokenumber + '.png')
+                        // console.log(res.height);
+                        $('#height').html(res.height);
+                        // console.log(res.weight);
+                        $('#weight').html(res.weight);
+                        $('#types').html('');
+                        for (var i = 0; i < res.name.length; i++) {
+                        $('#types').append("<li>"+res.types[i].name+"</li>");
+                        };
+                    })
+                });
+            });
         </script>
     </head>
     <body>
         <div id="container"></div>
+        <div id="pokedex">
+            <h2 id="name"></h2>
+            <img id="picture" src="" alt="Selected pokemon">
+            <h4 >Types</h4>
+                <ul id="types"></ul>
+            <h4>Height</h4>
+                <p id="height"></p>
+            <h4>Weight</h4>
+                <p id="weight"></p>
+        </div>
     </body>
 </html>
