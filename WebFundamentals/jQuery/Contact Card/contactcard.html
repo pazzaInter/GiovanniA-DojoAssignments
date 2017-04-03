@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="This page will list contacts and you can add new contacts to the page.">
+        <title>Contact Card</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("form").submit(function (e) {
+                    e.preventDefault();
+                    var f_name = $("#f_name").val();
+                    var l_name = $("#l_name").val();
+                    var full_name = f_name + ' ' + l_name;
+                    var description = $("#description").val();
+                    $("#contacts").append("<div class='card'><h2>" + full_name + "</h2><p>Click for description</p><p id='desc'>"+ description + "</p></div><br>")
+                })
+
+                $(document).on("click", ".card", function () {
+                    $(this).children().toggle();
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <head>
+            <h1>Enter your Favorite Soccer Players</h1>
+        </head>
+        <div id="container">
+            <form>
+            <label for="f_name">First name:</label>
+            <input type="text" id="f_name" name="f_name" value="">
+
+            <label for="l_name">Last name:</label>
+            <input type="text" id="l_name" name="l_name" value="">
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Enter description:" rows="8" cols="auto"></textarea>
+
+            <input type="submit" value="Add User">
+            </form>
+        </div>
+        <div id="contacts"></div>
+    </body>
+</html>
