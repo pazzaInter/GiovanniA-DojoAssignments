@@ -1,0 +1,1 @@
+This is directory houses all my Python assignments.
