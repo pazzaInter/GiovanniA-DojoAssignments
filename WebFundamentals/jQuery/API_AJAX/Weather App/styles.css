@@ -1,0 +1,48 @@
+* {
+    padding: 10px;
+    margin: 0px;
+}
+
+body {
+    background-color: #091f2d;
+}
+
+#title {
+    font-size: 25pt;
+    color: orange;
+    margin: 30px auto;
+    text-align: center;
+}
+
+#container {
+    width: 100%;
+    padding: 0px;
+    display: inline-block;
+}
+
+#left {
+    vertical-align: top;
+    display: inline-block;
+    width: 500px;
+    padding: 0px 10px;
+}
+
+form {
+    margin: 0px 0px 20px 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 50pt;
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+#map {
+    height: 400px;
+    width: 500px;
+    display: inline-block;
+}

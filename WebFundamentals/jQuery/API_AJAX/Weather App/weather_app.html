@@ -5,15 +5,74 @@
         <meta name="description" content="This is a weather app to tell us how nice the weather is outside Seattle">
         <title>Weather</title>
         <link rel="stylesheet" href="styles.css">
-        <script scr="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <!-- site for jquery -->
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <!-- call for google maps api -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJF4o32vATTf4mTFLexZbQn4zVKKoJjSk&callback=initMap">
+        </script>
         <script type="text/javascript">
-            $(document).ready(func
-            () {
+            //convert the temperature to farenheit from kelvin
+            var temperature = 0;
+            function farenheit_convert(x) {
+                temperature = Math.round(x * (9/5) - 459.67);
+            }
+            //set up map to show coordinates of selected city
+            var uluru = {lat: 0, lng: 0};
+            function initMap(x,y) {
+                //initial load of page will show default 0 and 0 coordinates
+                if (x === undefined && y === undefined) {
+                    uluru = {lat: 0, lng: 0};
+                }
+                //once city coordinates passed in they will be assigned to map
+                else {
+                    uluru['lat'] = x;
+                    uluru['lng'] = y;
+                }
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 11,
+                    center: uluru
+                });
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+            }
 
+            $(document).ready(function () {
+
+                $("form").submit(function (e) {
+                    e.preventDefault();
+                    var city = $("#city").val();
+
+                    $.get("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=f71f8c2e923b5d5a26b7b751481c6cc2",
+                    function(res) {
+                        console.log(res);
+                        console.log(res['main']['temp']);
+                        farenheit_convert(res['main']['temp']);
+                        $("#location").html(city);
+                        $("#temp").text("Temperature: " + temperature + "°");
+                        $("#city").val('');
+                        console.log(res['coord']['lat']);
+                        console.log(res['coord']['lon']);
+                        // Pass coordinates to our map function
+                        initMap(res['coord']['lat'],res['coord']['lon']);
+                    }, 'json');
+                });
             });
         </script>
     </head>
     <body>
-
+        <h1 id="title">What's the weather?</h1>
+        <div id="container">
+            <div id="left">
+                <form action="index.html" method="post">
+                    <input type="text" id="city" name="city" placeholder="Enter City" value="">
+                    <input type="submit" value="Search Weather">
+                </form>
+                <h1 id="location"></h1>
+                <p id="temp"></p>
+            </div>
+            <div id="map"></div>
+        </div>
     </body>
 </html>
