@@ -1,0 +1,17 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-family: sans-serif;
+}
+
+label {
+    color: blue;
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}

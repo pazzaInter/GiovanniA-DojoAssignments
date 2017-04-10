@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Stats</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_styles.css') }}">
+    </head>
+    <body>
+        <h1>Enter your stats</h1>
+        <form action="" method="post">
+            <label for="speed">How fast are you ninja skills?</label>
+            <input type="radio" id="speed1" name="speed" value="slow">
+            <label for="speed1">Slow</label>
+            <input type="radio" id="speed2" name="speed" value="slower">
+            <label for="speed2">Slower</label>
+            <input type="radio" id="speed3" name="speed" value="slowest">
+            <label for="speed3">Slowest</label>
+
+            <br>
+            <label for="height">Height:</label>
+            <input type="text" id="height" name="height" value="">
+
+            <br>
+            <label for="weapon">What is your weapon of choice?</label>
+            <input type="text" id="weapon" name="weapon" value="">
+
+        </form>
+    </body>
+</html>
