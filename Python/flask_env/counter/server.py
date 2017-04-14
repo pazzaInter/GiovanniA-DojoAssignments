@@ -5,7 +5,10 @@ app.secret_key = "backwards0987654321" #security key
 @app.route('/')
 def index():
     #each time page is loaded, counter will increase by 1
-    session['counter'] += 1
+    try:
+        session['counter'] += 1
+    except KeyError:
+        session['counter'] = 1    
     return render_template('index.html')
 @app.route('/increment', methods=['POST'])
 def increment():
