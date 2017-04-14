@@ -18,6 +18,6 @@ def create_user():
 #this route will show the user submitted information
 @app.route('/show')
 def show_user():
-  return render_template('user.html')
+  return render_template('index.html')
 
 app.run(debug=True) # run our server
