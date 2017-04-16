@@ -8,9 +8,9 @@ app.secret_key = "password"
 def index():
     session['answer'] = random.randint(1,100)
     print session['answer']
-    submit = ''
-    button = 'no_win'
-    return render_template('index.html', button=button, submit=submit)
+    button2 = ""
+    button = "no_win"
+    return render_template('index.html', button=button, button2=button2)
 
 @app.route('/guess', methods=['POST'])
 def check_guess():
@@ -35,5 +35,5 @@ def check_guess():
         css_style = "wrong"
         button2 = "blank"
         button = "no_win"
-    return render_template('index.html', results=results, css_style=css_style, button=button, submit=submit)
+    return render_template('index.html', results=results, css_style=css_style, button=button, button2=button2)
 app.run(debug=True)
