@@ -3,14 +3,14 @@
     padding: 5px;
 }
 
-#score p {
+#score h2, #score p {
     vertical-align: middle;
     display: inline-block;
 }
-#score p:last-child {
+#score p {
     width: 50px;
     height: 20px;
-    border: 1px solid rgb(232, 197, 50);
+    border: 5px solid rgb(232, 197, 50);
 }
 
 #main {
@@ -32,7 +32,16 @@ button {
 }
 
 #activity {
-    width: 400px;
-    height: 200px;
+    width: auto;
+    height: 150px;
     overflow: auto;
+    border: 5px solid #2d4255;
+}
+
+.gain {
+    color: green;
+}
+
+.loss {
+    color: red;
 }

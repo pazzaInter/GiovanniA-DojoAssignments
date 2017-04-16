@@ -7,7 +7,7 @@
     </head>
     <body>
         <div id="score">
-            <p>Gold</p>
+            <h2>Your Gold</h2>
             <p>{{session['gold']}}</p>
         </div>
         <form action="/reset" method="post">
@@ -51,8 +51,12 @@
         <br>
         <div id="activity">
         {% for each in session['log'] %}
-            <p>{{each}}</p>
-        {% endfor%}
+            {% if each[1] == True: %}
+                <p class="gain">{{each[0]}}</p>
+            {% else: %}
+                <p class="loss">{{each[0]}}</p>
+            {% endif %}
+        {% endfor %}
         </div>
     </body>
 </html>
