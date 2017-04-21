@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Teenage Mutant Ninja Turtles</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/ninja_styles.css')}}">
+    </head>
+    <body>
+        {% if color == 'none' %}
+            <h1>Teenage Mutant Ninja Turtles</h1>
+            <img src="{{url_for('static', filename = 'img/Ninjas/donatello.jpg')}}" alt="donatello">
+            <img src="{{url_for('static', filename = 'img/Ninjas/leonardo.jpg')}}" alt="leonardo">
+            <img src="{{url_for('static', filename = 'img/Ninjas/michelangelo.jpg')}}" alt="michelangelo">
+            <img src="{{url_for('static', filename = 'img/Ninjas/raphael.jpg')}}" alt="raphael">
+        {% else: %}
+            <h1>{{ ninja.title() }}</h1>
+            <img src="{{ url_for('static', filename = 'img/Ninjas/') }}{{ ninja }}.jpg" alt="{{ ninja }}">
+        {% endif %}
+    </body>
+</html>
