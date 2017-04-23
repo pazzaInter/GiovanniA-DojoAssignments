@@ -1,0 +1,3 @@
+USE lead_gen_business;
+select * from clients
+where id < 6;
