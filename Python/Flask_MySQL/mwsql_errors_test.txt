@@ -1,0 +1,31 @@
+Error:
+1045, "Access denied for user 'root'@'localhost' (using password: YES)"
+
+Fix:
+type correct password
+
+Error:
+1045, "Access denied for user 'roo'@'localhost' (using password: YES)"
+
+Fix:
+type correct user name, similar error to previous but it looks like it will always assume the user to be correct. double check both user and password when receiving this error.
+
+Error:
+NameError: global name 'd' is not defined
+
+Fix:
+make sure variable names match in config as listed in the parameter for class
+
+Error:
+2003, "Can't connect to MySQL server on '127.0.0.1' (10061)"
+
+Fix:
+simply means that connection is not possible for one of the following (or similar) reasons:
+
+* There is no MySQL server running at the specified host
+
+* Connection to the MySQL server is not allowed using TCP-IP. Check the 'skip-networking' setting in the MySQL configuration file (my.ini on Windows, my.cnf on Unix/Linux). It shall be commented out like '#skip-networking'. If it is not commented out, then do it and restart the MySQL server for the change to take effect. SQLyog needs to connect using TCP-IP.
+
+* Some networking issue prevents connection. It could be a network malconfiguration or a firewall issue. We have experienced sometimes that some firewalls (ZoneAlarm in particular) is blocking TCP-IP connections even if it claims to be disabled. Most often it will help to uninstall and reinstall the firewall.
+
+* When trying to connect to a MySQL server at an ISP this error message often indicates that direct connection to MySQL has been blocked. You must then use HTTP-tunneling or SSH-tunneling to connect.
