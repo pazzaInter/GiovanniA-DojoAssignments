@@ -1,0 +1,10 @@
+* {
+    margin: 0px;
+    padding: 5px;
+}
+
+h3 {
+    border: 3px solid black;
+    background-color: #c1060b;
+    width: 400px;
+}

@@ -1,0 +1,14 @@
+ * {
+    margin: 0px;
+    padding: 5px;
+ }
+
+h3 {
+    border: 3px solid black;
+    background-color: #24781d;
+    width: 400px;
+}
+
+p {
+    display: inline-block;
+}

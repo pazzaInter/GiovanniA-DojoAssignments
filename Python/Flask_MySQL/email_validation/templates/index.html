@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="This page will ask for an email and display it along the other emails in the database.">
+        <title>Email Validation</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index_styles.css') }}">
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% for each in messages: %}
+                <h3>{{each}}</h3>
+            {% endfor %}
+        {% endwith %}
+        <form action="/success" method="post">
+            <label for="email">Email address:<input type="email" id="email" name="email" value=""></label>
+            <button type="submit" name="button">Submit</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Emails Entered</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/success_styles.css') }}">
+    </head>
+    <body>
+        <h3>The email you entered {{email}} is a VALID!!! Gracias.</h3>
+        <p>Email Addresses Entered:</p>
+        {% for email in emails %}
+            <div class="t_emails">
+                <p>{{ email['email_address'] }}</p>
+                <p>{{ email['created_at'] }}</p>
+                <p>{{ email['updated_at'] }}</p>
+            </div>
+        {% endfor %}
+    </body>
+</html>
