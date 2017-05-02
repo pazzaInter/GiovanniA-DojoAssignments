@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Wall</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body>
+        <header>
+            <h2 class="header-left">CodingDojo Wall</h2>
+            <div class="header-right">
+                <p>Welcome {{user['first_name']}}</p>
+                <a href="/">log off</a>
+            </div>
+        </header>
+        <hr>
+        <form action="/add_message" method="post">
+            <input type="hidden" name="user_id" value="{{user['id']}}">
+            <label for="message">Post a message</label>
+            <br>
+            <textarea id="message" name="message" rows="5" cols="80"></textarea>
+            <br>
+            <button type="submit">Post a message</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% for each in messages: %}
+                <h3>{{each}}</h3>
+            {% endfor %}
+        {% endwith %}
+        <section>
+            {% for each in message %}
+            <h2>{{each['user']}} - {{each['created_at'].strftime('%m-%d-%Y')}}</h2>
+            <p class="messages">{{each['message']}}</p>
+                {% for data in full_table %}
+                    {% if data['id'] == each['id'] %}
+                        <div>
+                            <h4>{{data['commentor']}} -  {{data['commented_on']}}</h4>
+                            {% if data['users_id'] == user['id'] %}
+                            <form class="delete" action="/delete_comment/{{data['comment_id']}}" method="post">
+                                <button type="submit">Delete</button>
+                            </form>
+                            {% endif %}
+                            <p class="comments">{{data['comment']}}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                    <form action="/add_comment" method="post">
+                        <input type="hidden" name="user_id" value="{{user['id']}}">
+                        <input type="hidden" name="message_id" value="{{each['id']}}">
+                        <label for="comment">Post a comment</label>
+                        <br>
+                        <textarea id="comment" name="comment" rows="3" cols="80"></textarea>
+                        <br>
+                        <button type="submit">Post a comment</button>
+                    </form>
+            {% endfor %}
+        </section>
+    </body>
+</html>

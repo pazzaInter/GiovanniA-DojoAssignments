@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome</title>
+    </head>
+    <body>
+        <header>
+            <h3>CodingDojo Wall</h3>
+            <form action="/login" method="post">
+                <label for="email"><input type="email" name="email" placeholder="Email" value=""></label>
+                <label for="password"><input type="password" name="password" placeholder="Password" value=""></label>
+                <button type="submit" name="login">Login</button>
+            </form>
+        </header>
+        <hr>
+        <h2>Login</h2>
+        <h2>Register</h2>
+        <form action="/register" method="post">
+            <label for="first_name"><input type="text" name="first_name" placeholder="First Name" value=""></label>
+            <label for="last_name"><input type="text" name="last_name" placeholder="Last Name" value=""></label>
+            <label for="email"><input type="email" name="email" placeholder="Email" value=""></label>
+            <label for="password"><input type="password" name="password" placeholder="********" value=""></label>
+            <label for="password2"><input type="password" name="password2" placeholder="********" value=""></label>
+            <button type="submit" name="register">Register</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% for each in messages: %}
+                <h3>{{each}}</h3>
+            {% endfor %}
+        {% endwith %}
+    </body>
+</html>

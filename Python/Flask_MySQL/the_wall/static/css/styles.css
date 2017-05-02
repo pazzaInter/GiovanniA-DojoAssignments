@@ -1,0 +1,47 @@
+* {
+    margin-right: 5px;
+    padding: 0px;
+}
+
+header * {
+    display: inline-block;
+}
+.header-left {
+    width: 80%;
+}
+
+.header-right {
+    text-align: right;
+}
+
+p {
+    font-size: 20px;
+    margin-top: 0px;
+    margin-bottom:20px;
+}
+
+.messages {
+    color: rgba(#010317, 0.69);
+    margin-left: 20px;
+}
+
+h4 {
+    margin: 0px 0px 0px 40px;
+}
+
+h4, .delete {
+    display: inline-block;
+}
+
+.delete {
+    margin: 0px auto;
+}
+
+.comments {
+    color: #343973;
+    margin-left: 40px;
+}
+
+form {
+    margin: 30px auto;
+}
