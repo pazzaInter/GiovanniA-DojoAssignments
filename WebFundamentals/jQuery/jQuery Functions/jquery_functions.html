@@ -3,45 +3,173 @@
     <head>
         <meta charset="utf-8">
         <title>My jQuery basic assignment!</title>
+        <link rel="stylesheet" href="styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
-                $("#top button").click (function() {
-                    $("#top div p").addClass("red");
+                $("button[name='addclass']").click (function() {
+                    $("p").addClass("red");
                 })
-                $("#middle button").click (function() {
-                    $("#hidden").fadeOut();
+                $("button[name='slidetoggle']").click (function () {
+                    $('ul').last().slideToggle(4000);
                 })
-                $("#bottom button").click (function(){
-                    $("#bottom div").append("<p>This is a new paragraph you have just added. What happens if you click me?</p>")
+                $("button[name='append']").click (function(){
+                    $(this).parent().append("<p>This is a new paragraph you have just added. </p>")
+                })
+                $("button[name='hide']").click (function() {
+                    $("button[name='append']").siblings().hide();
+                })
+                $("button[name='show']").click (function() {
+                    $(this).siblings().show();
+                })
+                $("button[name='toggle']").click (function() {
+                    $(this).siblings().toggle();
                 })
             })
         </script>
     </head>
     <body>
-        <section id="top">
-            <h1>AddClass</h1>
+        <section>
+            <h1>Add Class</h1>
             <div>
                 <button type="button" name="addclass">AddClass</button>
-                <p>Click the button to add class 'red' to this paragraph</p>
+                <p>This will add a class 'red' to each paragraph.</p>
             </div>
+            <hr>
         </section>
-        <hr>
-        <section id="middle">
-            <h1>Slidetoggle</h1>
+        <section>
+            <h1>Slide Toggle</h1>
             <div>
-                <button type="button" name="Slidetoggle">Slidetoggle</button>
-                <p>Click the button to slidetoggle a hidden image</p>
+                <button type="button" name="slidetoggle">Slidetoggle</button>
+                <p>Click to slide this list up and down super slow!!!!</p>
+                <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                </ul>
             </div>
+            <hr>
         </section>
-        <hr>
-        <section id="bottom">
+        <section>
             <h1>Append</h1>
+            <div>
+                <button type="button" name="append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Hide</h1>
+            <div>
+                <button type="button" name="hide">Hide</button>
+                <p>Click to hide the previous paragraphs appended above</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Show</h1>
+            <div>
+                <button type="button" name="show">Show</button>
+                <p>Click the button to show a hidden item</p>
+                <p style="display:none">Found me</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Toggle</h1>
+            <div>
+                <button type="button" name="toggle">Toggle</button>
+                <p>Click the button to toggle this paragraph</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Slide Down</h1>
+            <div>
+                <button type="button" name="slidedown">Slide Down</button>
+                <p>Click the button </p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Slide Up</h1>
             <div>
                 <button type="button" name="Append">Append</button>
                 <p>Click the button to append a new paragraph!</p>
             </div>
-            <img id="hidden" src="C:\Users\Giovanni\Desktop\GiovanniA-DojoAssignments\WebFundamentals\jQuery\DissapearingNinjas\turtle.jpg" alt="small turtle">
+            <hr>
+        </section>
+        <section>
+            <h1>Fade In</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Fade Out</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Before</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>After</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>HTML</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Attr</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Val</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Text</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
+        </section>
+        <section>
+            <h1>Data</h1>
+            <div>
+                <button type="button" name="Append">Append</button>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <hr>
         </section>
     </body>
 </html>
