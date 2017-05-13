@@ -4,7 +4,7 @@ from django.shortcuts import render
 import urllib2
 import random
 
-# our website with a list of random words
+# website with a list of random words
 word_site = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
 
 # pull words from our site
@@ -15,19 +15,20 @@ txt = response.read()
 
 # place each word within a list
 WORDS = txt.splitlines()
-attempts = 0
 
 def index(request):
-    global attempts
     # picks a random word from our list
     rand_word = random.choice(WORDS).upper()
 
-    # adds one to our number of attempts
-    attempts += 1
+    # check to see if we are counting attempts, if yes then keep adding 1, else start at 1
+    if 'attempts' in request.session:
+        request.session['attempts'] += 1
+    else:
+        request.session['attempts'] = 1
 
     context = {
         'word': rand_word,
-        'attempts': attempts
+        'attempts': request.session['attempts']
     }
 
     return render(request, 'randomword/index.html', context)
