@@ -1,0 +1,28 @@
+* {
+    background-color: #081f2c;
+}
+
+.main {
+    margin: 2em auto;
+    text-align: center;
+}
+
+h1{
+    font-family: 'Baloo', cursive;
+    font-size: 4em;
+    color: white;
+}
+
+p {
+    font-family: 'Baloo', cursive;
+    font-size: 2em;
+    color: black;
+    margin: 10px auto;
+    background-color: #7d7e7c;
+    width: 30%;
+    padding: 40px;
+}
+
+button {
+
+}
