@@ -1,0 +1,21 @@
+* {
+  color: white;
+  background-color: black;
+}
+
+.home-menu {
+  text-align: left;
+  border-bottom: 2px solid #bb1818;
+}
+
+.home-menu ul {
+  float: right;
+}
+
+.main, .messages {
+  margin: 50px 20px;
+}
+
+.comments {
+  margin: 5px 50px;
+}

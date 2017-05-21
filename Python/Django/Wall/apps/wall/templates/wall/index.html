@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wall</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'wall/css/pure-min.css' %}">
+    <link rel="stylesheet" href="static/wall/css/my_styles.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">CodingDojo Wall</a>
+
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item pure-menu-selected">Welcome {{users.0.first_name}}</li>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Log Off</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <h2>Post a message</h2>
+      <form class="post-message" action="/post-message" method="post">
+        {% csrf_token %}
+        <textarea name="message" rows="8" cols="80"></textarea>
+        <br>
+        <button class="pure-button pure-button-primary" type="submit">Post a message</button>
+      </form>
+    </div>
+    <section class="messages">
+      {% for message in messages %}
+      <p>{{users.0.first_name}} - {{message.created_at}}</p>
+      <p>{{message.message}}</p>
+        {% for comment in comments %}
+          <div class="comments">
+            {% if comment.message_id == message %}
+            <p>{{comment.comment}}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      <form class="post-comment" action="/post-comment" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="message_id" value="{{message.id}}">
+        <textarea name="comment" rows="8" cols="80"></textarea>
+        <br>
+        <button class="pure-button pure-button-primary" type="submit">Post a comment</button>
+      {% endfor %}
+      </form>
+    </section>
+  </body>
+</html>
