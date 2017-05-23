@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Username Validator</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'validation/css/mystyles.css' %}">
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+    <form action="/validate" method="post">
+      {% csrf_token %}
+      <label for="username">Username: <input type="text" id="username" name="username" value=""></label>
+      <button type="submit" name="button">Submit</button>
+    </form>
+  </body>
+</html>

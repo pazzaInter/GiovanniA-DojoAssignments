@@ -1,0 +1,25 @@
+.error, .success {
+  color: white;
+  border: 2px solid black;
+  width: auto;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.25em;
+}
+
+.error {
+  background-color: #bd0000;
+}
+
+.success {
+  background-color: #21612b;
+}
+
+.list-users {
+
+}
+
+.usernames, .created-date {
+  display: inline-block;
+  width: 9%;
+}

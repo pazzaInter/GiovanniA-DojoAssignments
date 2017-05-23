@@ -11,7 +11,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
-    author = models.ForeignKey(Author)
+    authors = models.ManyToManyField(Author, related_name='books')
     published_date = models.DateTimeField()
     category = models.CharField(max_length=30)
     in_print = models.BooleanField()
