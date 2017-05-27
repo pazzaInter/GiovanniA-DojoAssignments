@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <link rel="stylesheet" href="static/login/css/mystyles.css">
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'login/css/pure-min.css' %}">
     <link rel="stylesheet" href="{% static 'login/css/grids-responsive-min.css' %}">
-    <link rel="stylesheet" href="static/login/css/mystyles.css">
   </head>
   <body>
     <h2>Registration</h2>
@@ -86,6 +86,12 @@
             <label for="password">Password</label>
             <input id="password" name="password" type="password" placeholder="Password">
         </div>
+
+        {% for message in messages %}
+          {% if message.extra_tags == 'login-error' %}
+          <p class="{{ message.tags }}">{{ message }}</p>
+          {% endif %}
+        {% endfor %}
 
         <div class="pure-controls">
             <button type="submit" class="pure-button pure-button-primary">Sign In</button>
