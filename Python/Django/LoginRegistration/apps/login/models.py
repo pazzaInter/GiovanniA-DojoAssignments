@@ -55,13 +55,19 @@ class UserManager(models.Manager):
         return [True, '', '']
 
     def login(self, data):
-        try:
-            if self.get(email = data['email']):
-                if self.get(email = data['email']).password == data['password']:
-                    return [True, '', '']
-                else:
-                    return [False, 'Incorrect email or password', 'login-error']
-        except:
+        # first check if information entered is valid before we ping db
+        if EMAIL_REGEX.match(data['email']) and len(data['password'])>7:
+            # if valid then check if credentials match those stored in db
+            try:
+                if self.get(email = data['email']):
+                    if self.get(email = data['email']).password == data['password']:
+                        return [True, '', '']
+                    else:
+                        return [False, 'Incorrect email or password', 'login-error']
+            except:
+                return [False, 'Incorrect email or password', 'login-error']
+        # if info is not valid then just return error and not ping db
+        else:
             return [False, 'Incorrect email or password', 'login-error']
 
 class User(models.Model):
